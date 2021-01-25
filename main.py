@@ -1,5 +1,6 @@
 import os
 from pdf2image import convert_from_path, convert_from_bytes
+import tempfile
 
 from pdf2image.exceptions import (
     PDFInfoNotInstalledError,
@@ -11,15 +12,16 @@ from pdf2image.exceptions import (
 pdf_images = os.listdir('pdf_images')
 tiff_images = os.listdir('tiff_images')
 
-def convert_pdf_to_tiff(directory_path: str, img_name: str):
+def convert_pdf_to_tiff():
     # pdf_images.save('test.Tiff', 'TIFF')
     # images = convert_from_bytes(open(pdf_images, 'rb').read())
-    images = convert_from_path('./pdf_images/1.pdf')
-    print('pdf converted')
-    return images
+    with tempfile.TemporaryDirectory() as path:
+        images = convert_from_path('./pdf_images/1.pdf', output_folder='./tiff_images')
+        print('pdf converted')
+        return images
 
 if __name__ == '__main__':
-    convert_pdf_to_tiff('pdf_image', '1.jpeg')
+    convert_pdf_to_tiff()
 
 
 
