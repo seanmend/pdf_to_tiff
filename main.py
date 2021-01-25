@@ -7,19 +7,19 @@ from pdf2image.exceptions import (
     PDFSyntaxError
 )
 
-
 pdf_images = os.listdir('pdf_images')
 tiff_images = os.listdir('tiff_images')
 
-def convert_pdf_to_tiff(directory_path: str, img_name: str):
+def convert_pdf_to_tiff():
     # pdf_images.save('test.Tiff', 'TIFF')
     # images = convert_from_bytes(open(pdf_images, 'rb').read())
-    images = convert_from_path('./pdf_images/1.pdf')
-    print('pdf converted')
+    # with tempfile.TemporaryDirectory() as path:
+    images = convert_from_path('./pdf_images/1.pdf', output_folder='./tiff_images', fmt='tiff')
+    print(images)
     return images
 
 if __name__ == '__main__':
-    convert_pdf_to_tiff('pdf_image', '1.jpeg')
+    convert_pdf_to_tiff()
 
 
 
@@ -43,8 +43,18 @@ if __name__ == '__main__':
 
 
 
-
-
+# CONVERTS TO WRONG IMAGE TYPE
+# def convert_pdf_to_tiff():
+#     # pdf_images.save('test.Tiff', 'TIFF')
+#     # images = convert_from_bytes(open(pdf_images, 'rb').read())
+#     # with tempfile.TemporaryDirectory() as path:
+#     images = convert_from_path('./pdf_images/1.pdf', output_folder='./tiff_images')
+#     print('pdf converted')
+#     return images
+#
+# if __name__ == '__main__':
+#     convert_pdf_to_tiff()
+#
 
 
 
