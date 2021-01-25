@@ -1,13 +1,11 @@
 import os
 from pdf2image import convert_from_path, convert_from_bytes
 
-
 from pdf2image.exceptions import (
     PDFInfoNotInstalledError,
     PDFPageCountError,
     PDFSyntaxError
 )
-
 
 pdf_images = os.listdir('pdf_images')
 tiff_images = os.listdir('tiff_images')
