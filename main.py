@@ -1,6 +1,7 @@
 import os
 from pdf2image import convert_from_path
 
+# May be needed when implementing on web-adapters
 from pdf2image.exceptions import (
     PDFInfoNotInstalledError,
     PDFPageCountError,
