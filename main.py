@@ -10,13 +10,12 @@ from pdf2image.exceptions import (
 pdf_images = os.listdir('pdf_images')
 tiff_images = os.listdir('tiff_images')
 
+
 def convert_pdf_to_tiff():
-    # pdf_images.save('test.Tiff', 'TIFF')
-    # images = convert_from_bytes(open(pdf_images, 'rb').read())
-    # with tempfile.TemporaryDirectory() as path:
     images = convert_from_path('./pdf_images/1.pdf', output_folder='./tiff_images', fmt='tiff')
     print(images)
     return images
+
 
 if __name__ == '__main__':
     convert_pdf_to_tiff()
